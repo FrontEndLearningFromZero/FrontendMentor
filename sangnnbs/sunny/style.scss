@@ -20,7 +20,6 @@ $White: hsl(0, 0%, 100%);
 
 body {
     margin: 0;
-
     max-width: 324px;
 }
 
@@ -146,11 +145,32 @@ body {
     }
 }
 
-.dropbtn {
+.dropdown {
     cursor: pointer;
     transition-duration: 0.4s;
 }
 
-.dropbtn:hover ~ .dropdown-content {
-    background-color: aqua;
+.dropdown-content {
+    position: relative;
+    width: 100%;
+    display: none;
+    .content {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: white;
+        height: auto;
+        width: 90%;
+
+        * {
+            width: 30%;
+            margin: 1rem;
+        }
+    }
+}
+
+.contact {
+    border-radius: 15px 15px 15px 15px;
+    background-color: yellow;
 }

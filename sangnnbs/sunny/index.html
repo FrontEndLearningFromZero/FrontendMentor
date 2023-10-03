@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
-
+    <script src="./scripts.js"></script>
     <link
       rel="icon"
       type="image/png"
@@ -30,18 +30,20 @@
       <div class="header-bg">
         <img src="./images/mobile/image-header.jpg" alt="" />
       </div>
-      <div class="navbar">
+      <div class="navbar"  >
         <img src="./images/logo.svg" alt="" />
-        <div class="dropdown">
-          <button class="dropbtn">
-            <img src="./images/align-justify.svg" alt="" />
-          </button>
+        <div class="dropdown" onmouseover="openNav()">
+          <img src="./images/align-justify.svg" alt="" />
+          
         </div>
         </div>
-        <div class="dropdown-content">
-          <a href="#">About</a>
-          <a href="#">Services</a>
-          <a href="#">Projects</a>
+        <div class="dropdown-content" id="dropContent" >
+          <div class="content" onmouseleave="closeNav()">
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Projects</a>
+            <div class="contact">Contact</div>
+          </div>
         </div>
       </div>
       <div class="heading1">We Are Creatives</div>
@@ -164,6 +166,4 @@
         <img src="./images/icon-facebook.svg" alt=""><img src="./images/icon-instagram.svg" alt=""><img src="./images/icon-pinterest.svg" alt="">
         <img src="./images/icon-twitter.svg" alt="">
       </div>
-    <div class="attribution">>. Coded by <a href="#">Your Name Here</a>.</div>
-  </body>
 </html>
