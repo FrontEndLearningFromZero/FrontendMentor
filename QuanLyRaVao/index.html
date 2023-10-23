@@ -1,47 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QUANLYRAVAO Project</title>
-    <link rel="stylesheet" href="style.css">
-
-</head>
-<body>
-    <p>Hello    <span><input type="text" id="auth"></span></p>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <p>
+      Hello <span><input type="text" id="auth" value="admina"/></span>
+    </p>
 
     <div class="container">
-        <div class="time" id="time">
-
-        </div>
-        <div class="InputData">
-            <table>
-                <tr>
-                    <th>Biển Số Xe</th>
-                    <th>Tài xế</th>
-                    <th>Nhà vận chuyển</th>
-                    <th>Giờ dự kiến</th>
-                    <th>Xe vào</th>
-                    <th>Thời gian vào</th>
-                    <th>Xe ra</th>
-                    <th>Thời gian ra</th>
-                </tr>
-                <!-- Data rows -->
-                <tr>
-                    <td><input class="field" type="text"></td>
-                    <td><input class="field" type="text" placeholder="Tx"></td>
-                    <td><input class="field" type="text"></td>
-                    <td><input class="field" type="text"></td>
-                    <td><input class="field" type="checkbox" name="" id=""></td>
-                    <td><input class="field" type="time"></td>
-                    <td><input class="field" type="checkbox" name="" id=""></td>
-                    <td><input class="field" type="time"></td>
-                  </tr>
-            </table>
-        </div>
+      <div class="time" id="time"></div>
+      <div class="InputData">
+        <table>
+          <thead>
+            <tr>
+              <th>Biển Số Xe</th>
+              <th>Tài xế</th>
+              <th>Nhà vận chuyển</th>
+              <th>Giờ dự kiến</th>
+              <th>Xe vào</th>
+              <th>Thời gian vào</th>
+              <th>Xe ra</th>
+              <th>Thời gian ra</th>
+            </tr>
+          </thead>
+          <!-- Data rows -->
+          <tbody>
+            <tr>
+              <td><input class="field bsx" type="text" /></td>
+              <td><input class="field tx" type="text" /></td>
+              <td><input class="field nvc" type="text" /></td>
+              <td><input class="field dukien" type="text" /></td>
+              <td><input class="field xevao" type="checkbox" /></td>
+              <td><input class="field thoigianvao" type="time" /></td>
+              <td><input class="field xera" type="checkbox" /></td>
+              <td><input class="field thoigianra" type="time" /></td>
+            </tr>
+            <tr>
+              <td><input class="field bsx" type="text" /></td>
+              <td><input class="field tx" type="text" /></td>
+              <td><input class="field nvc" type="text" /></td>
+              <td><input class="field dukien" type="text" /></td>
+              <td><input class="field xevao" type="checkbox" /></td>
+              <td><input class="field thoigianvao" type="time" /></td>
+              <td><input class="field xera" type="checkbox" /></td>
+              <td><input class="field thoigianra" type="time" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <!-- Scripts -->
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

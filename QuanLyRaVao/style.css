@@ -1,4 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+body {
+    padding: 1rem;
+}
+
+table {
+    width: 100%;
+}
+
 th {
     border-style: solid;
 }
 
+tbody tr td input {
+    width: 100%;
+    text-align: center;
+}
