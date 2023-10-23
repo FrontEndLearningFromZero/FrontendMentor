@@ -17,10 +17,10 @@ document.getElementById("time").innerHTML = formattedTime;
 
 // ======================================================================
 // authorization
-let auth = "admin";
+let auth = "admina";
 
 window.addEventListener("load", () => {
-  auth = document.getElementById("auth").defaultValue;
+//   auth = document.getElementById("auth").defaultValue;
   var e = document.getElementsByClassName("field");
   if (auth == "admin") {
     for (let i = 0; i < e.length; i++) {
@@ -40,15 +40,38 @@ window.addEventListener("load", () => {
 });
 
 // ======================================================================
+let truck = {
+    "51A-12345": {
+        "TaiXe": "Nguyen Van A",
+        "NhaVanChuyen": "AAA",
+        "GioDuKien": "9:00:00 AM",
+    },
+    "51A-23456": {
+        "TaiXe": "Nguyen Van B",
+        "NhaVanChuyen": "BBB",
+        "GioDuKien": "10:00:00 AM",
+    }
+}
+
+// ======================================================================
 // allow to edit "Xe Vao"
 var a = false;
-for (var i = 0; i < bsx.length; i++) {
+for (let i = 0; i < bsx.length; i++) {
   bsx[i].addEventListener("change", function () {
     this.classList.toggle("active");
     if (this.value != "") {
-        // "Xe Vao" of active row is editable
-        a = true;
-        console.log(a)
+        for(var key in truck) {
+            if(this.value == key) {
+                tx[i].value = truck[key]["TaiXe"]
+                nvc[i].value = truck[key]["NhaVanChuyen"]
+                dukien[i].value = truck[key]["GioDuKien"]
+                break;
+            } else {
+                tx[i].value = ""
+                nvc[i].value = ""
+                dukien[i].value = ""
+            }
+        }
     }
   });
 }
