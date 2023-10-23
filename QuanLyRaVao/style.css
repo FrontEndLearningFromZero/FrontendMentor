@@ -9,12 +9,18 @@ body {
     padding: 1rem;
 }
 
+#time {
+    font-size: 1.875rem;
+    font-weight: bold;
+}
+
 table {
     width: 100%;
 }
 
 th {
-    border-style: solid;
+    border-bottom: solid;
+    padding: .5rem 0;
 }
 
 tbody tr td input {

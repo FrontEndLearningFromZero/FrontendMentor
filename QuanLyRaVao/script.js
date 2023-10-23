@@ -9,7 +9,7 @@ var thoigianra = document.getElementsByClassName("thoigianra");
 
 // display Date
 let date = new Date();
-let localeTime = date.toLocaleDateString("en-US"); //document.getElementById('time').innerHTML =
+let localeTime = date.toLocaleDateString("en-US");
 let day = date.getDay() + 1;
 
 let formattedTime = "Thứ " + day + ", " + localeTime;
@@ -41,15 +41,58 @@ window.addEventListener("load", () => {
 
 // ======================================================================
 // allow to edit "Xe Vao"
+var a = false;
 for (var i = 0; i < bsx.length; i++) {
   bsx[i].addEventListener("change", function () {
     this.classList.toggle("active");
     if (this.value != "") {
         // "Xe Vao" of active row is editable
-        xevao[i].disabled = false
+        a = true;
+        console.log(a)
     }
   });
 }
+
+// var b = false;
+// for (var i = 0; i < tx.length; i++) {
+//     tx[i].addEventListener("change", function () {
+//       this.classList.toggle("active");
+//       if (this.value != "") {
+//         // "Xe Vao" of active row is editable
+//         b = true;
+//         console.log(b)
+//       }
+//     });
+// }
+
+// "Thoi gian vao" get & display time when ticking
+for (let i = 0; i < tx.length; i++) {
+    xevao[i].addEventListener("change", function () {
+      this.classList.toggle("active");
+      if (this.checked) {
+        // "Xe Vao" of active row is editable
+        var tmp = new Date(Date.now());
+        thoigianvao[i].value = tmp.toLocaleTimeString();
+      } else {
+        thoigianvao[i].value = "";
+      }
+    });
+}
+
+// "Thoi gian ra" get & display time when ticking
+for (let i = 0; i < tx.length; i++) {
+    xera[i].addEventListener("change", function () {
+      this.classList.toggle("active");
+      if (this.checked) {
+        // "Xe Ra" of active row is editable
+        var tmp = new Date(Date.now());
+        thoigianra[i].value = tmp.toLocaleTimeString();
+      } else {
+        thoigianra[i].value = "";
+      }
+    });
+}
+
 // ======================================================================
 
 // ======================================================================
