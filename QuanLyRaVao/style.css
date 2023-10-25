@@ -17,6 +17,7 @@ body {
 table {
     width: 100%;
     margin-top: 1rem;
+    text-align: center;
 }
 
 th {
@@ -24,7 +25,6 @@ th {
     padding: .5rem 0;
 }
 
-tbody tr td input {
-    width: 100%;
-    text-align: center;
+tbody tr td {
+    vertical-align: middle;
 }

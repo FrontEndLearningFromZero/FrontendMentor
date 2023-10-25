@@ -3,14 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>QUANLYRAVAO Project</title>
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
+    
+    <!-- JS lib -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.min.js"></script>
+    
+    <title>QUANLYRAVAO Project</title>
   </head>
   <body>
     <div class="container">
       <div class="time" id="time"></div>
+      <div>
+        <input type="file" id="file_upload">
+        <button id="uploadBtn">Upload</button>
+      </div>
+
       <div class="InputData">
-        <table>
+        <input type="text" name="bienSoXe" id="bienSoXe" placeholder="Bien So Xe">
+
+        <table id="display_excel_data">
           <thead>
             <tr>
               <th>Biển Số Xe</th>
@@ -24,28 +37,7 @@
             </tr>
           </thead>
           <!-- Data rows -->
-          <tbody>
-            <tr>
-              <td><input class="field bsx" type="text" /></td>
-              <td><input class="field tx" type="text" /></td>
-              <td><input class="field nvc" type="text" /></td>
-              <td><input class="field dukien" type="text" /></td>
-              <td><input class="field xevao" type="checkbox" /></td>
-              <td><input class="field thoigianvao" type="text" /></td>
-              <td><input class="field xera" type="checkbox" /></td>
-              <td><input class="field thoigianra" type="text" /></td>
-            </tr>
-            <tr>
-              <td><input class="field bsx" type="text" /></td>
-              <td><input class="field tx" type="text" /></td>
-              <td><input class="field nvc" type="text" /></td>
-              <td><input class="field dukien" type="text" /></td>
-              <td><input class="field xevao" type="checkbox" /></td>
-              <td><input class="field thoigianvao" type="text" /></td>
-              <td><input class="field xera" type="checkbox" /></td>
-              <td><input class="field thoigianra" type="text" /></td>
-            </tr>
-          </tbody>
+          
         </table>
       </div>
     </div>
