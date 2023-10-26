@@ -118,8 +118,14 @@ function createDataInTable(table, data) {
       field.type = 'checkbox'
       field.className = classNameForField[c]
       field.innerHTML = data[columnName[c]]
-      field.addEventListener('click', function displayTime() {
-        alert(1)
+      field.addEventListener('click', function displayTime(){
+        if(this.className == 'xeVao') {
+          alert(1)
+          // display time in "Thoi gian vao"
+        } else if(this.className == 'xeRa') {
+          alert(2)
+          // display time in "Thoi gian ra"
+        }
       })
     } else {
       field = document.createElement('p')
@@ -137,7 +143,12 @@ function createDataInTable(table, data) {
 
 // ======================================================================
 // allow to edit "Xe Vao"
-
+var tmp = document.getElementsByClassName('xeVao')
+for(var i=0; i<tmp.length; i++) {
+  tmp[i].addEventListener('click', function displayTime() {
+    alert(1)
+  })
+}
 
 // ======================================================================
 
