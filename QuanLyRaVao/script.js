@@ -1,5 +1,8 @@
 // Global variables
 var jsonData = ""
+var column = 8
+var columnName = ["Biển số xe", "Tài xế", "Nhà vận chuyển", "Giờ dự kiến", "Xe vào", "Thời gian vào", "Xe ra", "Thời gian ra"]
+var classNameForField = ["bienSoXe", "taiXe", "nhaVanChuyen", "gioDuKien", "xeVao", "thoiGianVao", "xeRa", "thoiGianRa"]
 
 // ======================================================================
 // display Date
@@ -46,16 +49,17 @@ function excelFiletoJSON(file) {
             var data = XLSX.utils.sheet_to_json(workbook.Sheets[firstSheetName])
 
             // Store json result into var
+            for(var i=0; i<data.length; i++) {
+              data[i]["Xe vào"] = ''
+              data[i]["Thời gian vào"] = ''
+              data[i]["Xe ra"] = ''
+              data[i]["Thời gian ra"] = ''
+            }
             jsonData = data
         }
     } catch {
         console.error(e)
     }
-}
-
-// ======================================================================
-function displayJSONToHtmlTable(jsonData)
-{
 }
 
 // ======================================================================
@@ -98,39 +102,70 @@ function displayData(data) {
     data["Giờ dự kiến"] = Math.floor(tmp) + ':00:00'
   }
 
-  // data["Xe Vào"] = '<input type="checkbox" id="xevao" />;'
-  // data["Xe Ra"] = '<input type="checkbox" id="xevao" />;'
-  data["Xe Vào"] = '<input type="checkbox" class="xevao" />&nbsp;'
-  data["Xe Ra"] = '<input type="checkbox" class="xera" />&nbsp;'
-  data["Thời gian vào"] = ""
-  data["Thời gian ra"] = ""
-  htmlData.innerHTML += '<tr><td>' + data["Biển số xe"] + '</td><td>' + data["Tài xế"] + '</td><td>' + data["Nhà vận chuyển"] + '</td><td>' + data["Giờ dự kiến"] + '</td><td>' + data["Xe Vào"] + '</td><td>'+ data["Thời gian vào"] + '</td><td>' + data["Xe Ra"] + '</td><td>' + data["Thời gian ra"] +'</td></tr>' 
+  createDataInTable(htmlData, data)
 
-  addEventToElement('xevao')
-  addEventToElement('xera')
+  // addEventToElement('xevao')
+  // addEventToElement('xera')
 }
+
+// ======================================================================
+function createDataInTable(table, data) {
+  var row = document.createElement('tr')
+  var field = ''
+  for(var c = 0; c < column; c++) {
+    if(classNameForField[c] == 'xeVao' || classNameForField[c] == 'xeRa') {
+      field = document.createElement('input')
+      field.type = 'checkbox'
+      field.className = classNameForField[c]
+      field.innerHTML = data[columnName[c]]
+    } else {
+      field = document.createElement('p')
+      field.className = classNameForField[c]
+      field.style.textAlign = 'center'
+      field.innerHTML = data[columnName[c]]
+    }
+
+    var cell = document.createElement('td')
+    cell.appendChild(field)
+    row.appendChild(cell)
+    table.appendChild(row)
+  }
+}
+
+
 
 // ======================================================================
 // check "Xe Vao" if element exist or not
 // and show time then ticking
-function addEventToElement(id) {
-  if(document.getElementsByClassName(id)) {
-    var param = document.getElementsByClassName(id)
+function addEventToElement(className) {
+  if(document.getElementsByClassName(className)) {
+    var param = document.getElementsByClassName(className)
     for(var i=0; i<param.length; i++) {
+      param[i].add
       param[i].addEventListener('click', function() {
         this.classList.toggle('active')
         if(this.checked) {
-          alert(this.checked)
+          // alert(this.checked)
+          displayTime(className, (i-1))
         } else {
-          alert(this.checked)
+          // alert(this.checked)
         }
       })
     }
-
   } else {
     document.getElementsByClassName(id).removeEventListener('click')
   }
 }
+
+// ======================================================================
+// Display time
+function displayTime(className, count) {
+  if(document.getElementsByClassName('thoigianvao')) {
+    var param = document.getElementsByClassName('thoigianvao')
+    param[count].value = '01.00.00'
+  }
+}
+
 
 // ======================================================================
 // allow to edit "Xe Vao"
