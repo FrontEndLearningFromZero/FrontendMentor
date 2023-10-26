@@ -118,6 +118,9 @@ function createDataInTable(table, data) {
       field.type = 'checkbox'
       field.className = classNameForField[c]
       field.innerHTML = data[columnName[c]]
+      field.addEventListener('click', function displayTime() {
+        alert(1)
+      })
     } else {
       field = document.createElement('p')
       field.className = classNameForField[c]
@@ -131,41 +134,6 @@ function createDataInTable(table, data) {
     table.appendChild(row)
   }
 }
-
-
-
-// ======================================================================
-// check "Xe Vao" if element exist or not
-// and show time then ticking
-function addEventToElement(className) {
-  if(document.getElementsByClassName(className)) {
-    var param = document.getElementsByClassName(className)
-    for(var i=0; i<param.length; i++) {
-      param[i].add
-      param[i].addEventListener('click', function() {
-        this.classList.toggle('active')
-        if(this.checked) {
-          // alert(this.checked)
-          displayTime(className, (i-1))
-        } else {
-          // alert(this.checked)
-        }
-      })
-    }
-  } else {
-    document.getElementsByClassName(id).removeEventListener('click')
-  }
-}
-
-// ======================================================================
-// Display time
-function displayTime(className, count) {
-  if(document.getElementsByClassName('thoigianvao')) {
-    var param = document.getElementsByClassName('thoigianvao')
-    param[count].value = '01.00.00'
-  }
-}
-
 
 // ======================================================================
 // allow to edit "Xe Vao"
