@@ -112,19 +112,28 @@ function displayData(data) {
 function createDataInTable(table, data) {
   var row = document.createElement('tr')
   var field = ''
+
   for(var c = 0; c < column; c++) {
     if(classNameForField[c] == 'xeVao' || classNameForField[c] == 'xeRa') {
       field = document.createElement('input')
       field.type = 'checkbox'
       field.className = classNameForField[c]
       field.innerHTML = data[columnName[c]]
-      field.addEventListener('click', function displayTime(){
-        if(this.className == 'xeVao') {
-          alert(1)
-          // display time in "Thoi gian vao"
-        } else if(this.className == 'xeRa') {
-          alert(2)
-          // display time in "Thoi gian ra"
+
+      field.addEventListener('change', function displayTime(){
+        // get bienSoXe -> store time to Obj -> display in HTML
+
+        // console.log(this)
+        // console.log(this.parentNode)
+        // console.log(this.parentNode.parentNode)
+
+        if(this.checked) {
+          var time = new Date().toLocaleTimeString()
+          var firstEle = this.parentNode.parentNode.firstElementChild.children[0].innerHTML
+          storeTimeToObject(firstEle, this, time)
+          this.parentNode.nextSibling.innerHTML = time.toString()
+        } else {
+          this.parentNode.nextSibling.innerHTML = ''
         }
       })
     } else {
@@ -142,15 +151,28 @@ function createDataInTable(table, data) {
 }
 
 // ======================================================================
-// allow to edit "Xe Vao"
-var tmp = document.getElementsByClassName('xeVao')
-for(var i=0; i<tmp.length; i++) {
-  tmp[i].addEventListener('click', function displayTime() {
-    alert(1)
-  })
+// store time to Obj
+function storeTimeToObject(firstEle, currentCell, time) {
+  // var time = new Date().toLocaleTimeString()
+  for(var i=0; i<jsonData.length; i++) {
+    if(firstEle == jsonData[i]["Biển số xe"]) {
+      if(currentCell.className == 'xeVao') {
+        jsonData[i]["Xe vào"] = currentCell.checked
+        jsonData[i]["Thời gian vào"] = time.toString()
+        return
+      } else if(currentCell.className == 'xeRa') {
+        jsonData[i]["Xe ra"] = currentCell.checked
+        jsonData[i]["Thời gian ra"] = time.toString()
+        return
+      }
+    }
+  }
 }
 
 // ======================================================================
+function displayTimeInOut() {
+
+}
 
 // ======================================================================
 
