@@ -170,9 +170,9 @@ function storeTimeToObject(firstEle, currentCell, time) {
 }
 
 // ======================================================================
-function displayTimeInOut() {
+// Store Object to Excel after <n> seconds
+// Store only updated object
 
-}
 
 // ======================================================================
 
