@@ -49,12 +49,12 @@ function excelFiletoJSON(file) {
             var data = XLSX.utils.sheet_to_json(workbook.Sheets[firstSheetName])
 
             // Store json result into var
-            for(var i=0; i<data.length; i++) {
-              data[i]["Xe vào"] = ''
-              data[i]["Thời gian vào"] = ''
-              data[i]["Xe ra"] = ''
-              data[i]["Thời gian ra"] = ''
-            }
+            // for(var i=0; i<data.length; i++) {
+            //   data[i]["Xe vào"] = ''
+            //   data[i]["Thời gian vào"] = ''
+            //   data[i]["Xe ra"] = ''
+            //   data[i]["Thời gian ra"] = ''
+            // }
             jsonData = data
         }
     } catch {
@@ -118,7 +118,7 @@ function createDataInTable(table, data) {
       field = document.createElement('input')
       field.type = 'checkbox'
       field.className = classNameForField[c]
-      field.innerHTML = data[columnName[c]]
+      field.innerHTML = data[columnName[c]] // add new key to object
 
       field.addEventListener('change', function displayTime(){
         // get bienSoXe -> store time to Obj -> display in HTML
