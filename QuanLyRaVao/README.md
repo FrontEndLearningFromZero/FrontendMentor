@@ -13,3 +13,7 @@
 
 **Add Event Listener while creating element:** https://stackoverflow.com/questions/21292657/addeventlistener-after-appendchild
 **Get index row/column of current cell:** https://stackoverflow.com/questions/29042140/click-on-html-table-and-get-row-number-with-javascript-not-jquery
+
+**[REACT] Read & Parse CSV File To JSON:** https://blog.logrocket.com/working-csv-files-react-papaparse/#readstring
+**[REACT] Read CSV Example:** https://codesandbox.io/s/how-to-parse-or-read-csv-files-in-reactjs-ssr5s2?file=/src/App.js:966-1002
+**[REACT] List:** https://www.robinwieruch.de/react-list-component/
