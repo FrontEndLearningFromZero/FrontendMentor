@@ -1,0 +1,26 @@
+{
+  "name": "my-project",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel ./src/index.html --dist-dir ./app-scripts",
+    "build": "parcel build ./src/index.html --dist-dir ./app-scripts",
+    "gstart": "clasp push --watch",
+    "gpush": "clasp push",
+    "gpull": "clasp pull",
+    "glogin": "clasp login",
+    "glogout": "clasp logout",
+    "gclone": "clasp clone 1xpyFed2br1pZwaphSoOPGDtFL1achqI8lHD016kGDtrgNp8HB0qZNJZp --rootDir ./app-scripts"
+  },
+  "dependencies": {
+    "@google/clasp": "^2.4.2",
+    "@types/google-apps-script": "^1.0.78",
+    "parcel": "^2.10.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "process": "^0.11.10",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
