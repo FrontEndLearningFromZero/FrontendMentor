@@ -7,7 +7,8 @@ function GetData() {
 
   const [userData, setData] = useState([])
   const [loading, setLoading] = useState(false)
-  
+  const [ user, setUser ] = useState(userData)
+
   useEffect(()=>{
     setLoading(true)
     fetch(getAction)
@@ -28,16 +29,17 @@ function GetData() {
     console.log(userData)
     return (
       <div>
-        {userData.map((user, index) =>{
+        {userData.map((data, index) =>{
           return (
             <div key={index}>
               <form className="form" method="POST" action={postAction} key={index}>
-                <input placeholder="Your Name" name="Username" type="text" value={user[0]} onChange={(e)=>setUser({...user, name: e.target.value})}/>
-                <input placeholder="Your Email" name="Email" type="text" value={user[1]} onChange={(e)=>setUser({...user, mail: e.target.value})}/>
-                <input placeholder="Your Phone" name="Phone" type="text" value={user[2]} onChange={(e)=>setUser({...user, phone: e.target.value})}/>
-                <input placeholder="Your Message" name="Message" type="text" value={user[3]} onChange={(e)=>setUser({...user, message: e.target.value})}/>
-                <input name="CheckIn" type="checkbox" defaultChecked={user[5]} value={user[4]} />
+                <input placeholder="Your Name" name="Username" type="text" value={data[0]} onChange={(e)=>setUser({...user, name: e.target.value})}/>
+                <input placeholder="Your Email" name="Email" type="text" value={data[1]} onChange={(e)=>setUser({...user, mail: e.target.value})}/>
+                <input placeholder="Your Phone" name="Phone" type="text" value={data[2]} onChange={(e)=>setUser({...user, phone: e.target.value})}/>
+                <input placeholder="Your Message" name="Message" type="text" value={data[3]} onChange={(e)=>setUser({...user, phone: e.target.value})}/>
+                <input name="CheckIn" type="checkbox" checked={data[4]} />
                 <button type="submit" name="Submit" value="submit">Submit</button>
+
               </form>
             </div>
           )}
@@ -48,18 +50,17 @@ function GetData() {
 
 
 export default function App() {
-//  const userInfo = {
-//    name: 'John',
-//    mail: 'john@gmail.com',
-//    phone: '0901234567',
-//    message: 'test',
-//    checkIn: true
-//  }
-//  const [ user, setUser ] = useState(userInfo)
 
   return (
     <>
         <div className="App">
+        <form>
+                <input value="Username" disabled/> 
+                <input value="Email" disabled/> 
+                <input value="Message" disabled/> 
+                <input type="checkbox" disabled/> 
+                <input value="Button" disabled/> 
+              </form>
         <GetData />
     </div>
 

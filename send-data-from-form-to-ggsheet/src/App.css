@@ -4,5 +4,9 @@
 
 .form {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+}
+
+.form > div {
+  width: 165px;
 }
