@@ -1,11 +1,11 @@
-import "@/styles/globals.css";
+import React from "react";
+import theme from "./theme";
 import type { AppProps } from "next/app";
+import { ConfigProvider } from "antd";
+const App = ({ Component, pageProps }: AppProps) => (
+    <ConfigProvider theme={theme}>
+        <Component {...pageProps} />
+    </ConfigProvider>
+);
 
-export default function App({ Component, pageProps }: AppProps) {
-  return (
-    <>
-      This is pages layout
-      <Component {...pageProps} />
-    </>
-  );
-}
+export default App;
