@@ -1,17 +1,42 @@
-import type {
-    InferGetStaticPropsType,
-    GetStaticProps,
-    GetStaticPaths,
-} from "next";
+import { Flex, Menu } from "antd";
 import { mockMenu } from "../lib/mock";
 import { useRouter } from "next/router";
-export default function Page({ label }) {
+export default function Page({ label, newkey }) {
     const router = useRouter();
 
     if (router.isFallback) {
         return <div>Loading...</div>;
     }
-    return <h1>{label}</h1>;
+    return (
+        <>
+            <Flex
+                justify="space-between"
+                align="center"
+                style={{ borderColor: "green", borderStyle: "solid" }}
+            >
+                <div>Logo</div>
+                <Menu
+                    items={mockMenu}
+                    mode="horizontal"
+                    onClick={(e) => {
+                        alert(`${newkey}`);
+                        alert(router.query.slug);
+                    }}
+                    style={{ display: "flex", minWidth: 0 }}
+                >
+                    Old Menu
+                </Menu>
+                <div>Profile</div>
+            </Flex>
+            <Flex
+                justify="center"
+                align="center"
+                style={{ borderColor: "green", borderStyle: "solid" }}
+            >
+                {label}
+            </Flex>
+        </>
+    );
 }
 
 // get paths for slugs
@@ -35,6 +60,8 @@ export const getStaticProps = async (context: any) => {
             notFound: true,
         };
     }
-    const label = itemMenu[0]?.label;
-    return { props: { label } };
+    const data = itemMenu[0];
+    let newData = Object.assign({}, { label: data?.label, newkey: data?.key });
+
+    return { props: newData };
 };

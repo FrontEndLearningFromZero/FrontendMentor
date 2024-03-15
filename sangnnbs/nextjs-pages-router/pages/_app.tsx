@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import theme from "./theme";
 import type { AppProps } from "next/app";

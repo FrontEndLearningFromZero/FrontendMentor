@@ -15,6 +15,11 @@ const Index = () => {
             href: "/tasks/task1",
             title: "tasks1",
         },
+        {
+            key: 3,
+            href: "/tasks/task3",
+            title: "tasks3",
+        },
     ];
 
     return (
