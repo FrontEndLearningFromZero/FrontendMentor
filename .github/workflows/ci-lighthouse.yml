@@ -1,15 +1,23 @@
 name: CI
-on: [push]
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "sangnnbs/nextjs-pages-router/**"
 jobs:
   lighthouseci:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - run: npm install && npm install -g @lhci/cli@0.13.x
-      - run: npm run build
-      - run: lhci autorun
-        working-directory: /sangnnbs/nextjs-pages-router
-        
+      name: LHCI
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+        - uses: actions/setup-node@v3
+          with:
+            node-version: 20.10.0
+            registry-url: "https://npm.pkg.github.com"
+        - name: npm install  
+          run: |
+            npm install && npm install -g @lhci/cli@0.13.x
+            npm run build
+            lhci autorun
+          working-directory: sangnnbs/nextjs-pages-router
